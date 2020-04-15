@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { Route } from 'react-router';
+import Landing from './Landing/Landing';
+import Home from './Home/Home'
+import AddEntry from './AddEntry/AddEntry';
+import EntryMain from './EntryMain/EntryMain'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      entry: []
+    }
+  }
+  render() {
+    return (
+      <div className="app">
+        <Route
+          exact path='/'
+          component={Landing} />
+        <Route
+          exact path='/home'
+          component={Home} />
+        <Route
+          path='/add'
+          component={AddEntry} />
+        <Route
+          path='/entry'
+          component={EntryMain} />
+      </div>
+    )
+  }
+
+};
 
 export default App;
