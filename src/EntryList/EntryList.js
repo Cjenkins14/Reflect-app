@@ -5,7 +5,7 @@ class EntryList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            entries: ['one', 'two', 'three', 'four', 'five']
+            entries: this.props.entries
         };
     };
 

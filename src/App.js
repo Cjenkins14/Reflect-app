@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      entry: []
+      entries: ['entry1', 'entry2', 'entry3', 'entry4', 'entry5'],
+      habits: ['Walk', 'Read', 'Write', 'Meditate']
     }
   }
   render() {

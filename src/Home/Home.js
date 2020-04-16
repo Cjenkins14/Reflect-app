@@ -8,7 +8,7 @@ class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            entries: ['one', 'two', 'three', 'four']
         };
     };
 
@@ -27,7 +27,7 @@ class Home extends Component {
                 {/* use entryList component */}
                 <section>
                     <ul className="entry-list">
-                        <EntryList />
+                        <EntryList entries={this.state.entries} />
                     </ul>
                 </section>
                 <Link to='/add'>
