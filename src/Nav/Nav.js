@@ -9,6 +9,11 @@ class Nav extends Component {
         this.myRef = React.createRef();
     }
 
+    goBack = () => {
+        this.props.history.goBack()
+    };
+
+
     myFunction = () => {
         let x = this.myRef.current;
         console.log(x)
@@ -22,11 +27,12 @@ class Nav extends Component {
     render() {
         return (
             <div className="topnav" id="myTopnav" ref={this.myRef}>
-                <Link to="/home" className="active">Home</Link>
+                <a onClick={this.goBack}>Back</a>
+                <Link to="/home/01" >Home</Link>
                 <Link to="/add">New Entry</Link>
                 <Link to="/habits">Task Tracker</Link>
                 <Link to="/">About</Link>
-                <button class="hamburger-button" onclick={this.myFunction()}>
+                <button class="hamburger-button" onClick={this.myFunction}>
                     <i class="fa fa-bars"></i>
                 </button>
             </div>

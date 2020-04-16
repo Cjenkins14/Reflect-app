@@ -16,27 +16,32 @@ class App extends Component {
         {
           title: 'entry1',
           id: 1,
-          content: 'ipsum lorem'
+          content: 'ipsum lorem',
+          date: new Date()
         },
         {
           title: 'entry2',
           id: 2,
-          content: 'ipsum lorem'
+          content: 'ipsum lorem',
+          date: new Date()
         },
         {
           title: 'entry3',
           id: 3,
-          content: 'ipsum lorem'
+          content: 'ipsum lorem',
+          date: new Date()
         },
         {
           title: 'entry4',
           id: 4,
-          content: 'ipsum lorem'
+          content: 'ipsum lorem',
+          date: new Date()
         },
         {
           title: 'entry5',
           id: 5,
-          content: 'ipsum lorem'
+          content: 'ipsum lorem',
+          date: new Date()
         }],
       habits: ['Walk', 'Read', 'Write', 'Meditate']
     }
@@ -74,7 +79,7 @@ class App extends Component {
             exact path='/'
             component={Landing} />
           <Route
-            exact path='/home'
+            exact path='/home/:id'
             component={Home} />
           <Route
             path='/add'

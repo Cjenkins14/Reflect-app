@@ -18,10 +18,11 @@ class Home extends Component {
 
     render() {
         console.log(this.state)
+        console.log(this.context.value.match.params.id)
         const entries = this.context.entries
         return (
             <div className='home-page'>
-                <Nav />
+                <Nav history={this.props.history} />
                 <header role="banner">
                     <h1>Reflect</h1>
                 </header>

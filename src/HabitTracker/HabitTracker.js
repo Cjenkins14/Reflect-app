@@ -19,8 +19,8 @@ class HabitTracker extends Component {
         const { habits } = this.context
         return (
             <div className='habit-tracker'>
-                <Nav />
-                <h1>Habit Tracker</h1>
+                <Nav history={this.props.history} />
+                <h1>Task Tracker</h1>
                 <ul className='habit-list'>
                     {habits.map(habit => {
                         return <li>
@@ -30,7 +30,7 @@ class HabitTracker extends Component {
                 </ul>
 
                 <section className='habit-entry'>
-                    <label htmlFor='new-habit'>Add a habit:</label> <br />
+                    <label htmlFor='new-habit'>Add a Task:</label> <br />
                     <input type='text' id='new-habit' placeholder='New goals?' />
                     <button>Add</button>
                 </section>

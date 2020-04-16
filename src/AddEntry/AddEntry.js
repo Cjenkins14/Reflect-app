@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Nav from '../Nav/Nav'
+
 
 class AddEntry extends Component {
     constructor(props) {
@@ -11,7 +13,7 @@ class AddEntry extends Component {
     render() {
         return (
             <div className='add=page'>
-                <nav role="navigation">Nav</nav>
+                <Nav history={this.props.history} />
                 <main role="main">
                     <header>
                         <h1>New Entry</h1>
@@ -29,6 +31,7 @@ class AddEntry extends Component {
 
                             <button type="submit">Submit</button>
                             <button type="reset">Reset</button>
+                            {/* add habitlist as a daily reminder */}
                         </form>
                     </section>
                 </main>

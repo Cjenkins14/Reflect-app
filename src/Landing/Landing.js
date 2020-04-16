@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Landing.css'
 import { Link } from 'react-router-dom';
-
+import Nav from '../Nav/Nav'
 
 class Landing extends Component {
 
@@ -9,7 +9,7 @@ class Landing extends Component {
     render() {
         return (
             <body>
-                <nav role="navigation">Nav</nav>
+                <Nav history={this.props.history} />
                 <main role="main">
                     <header role="banner">
                         <h1>Reflect</h1>
@@ -30,7 +30,7 @@ class Landing extends Component {
             <p>With the progress section, you can view how many entries you have made for the month, and how many of your habits you maintained </p>
                     </section>
                     {/* button to home page  */}
-                    <Link to='/home'>
+                    <Link to='/home/01'>
                         <button>Demo</button>
                     </Link>
 

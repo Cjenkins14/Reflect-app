@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './EntryMain.css'
 import ReflectContext from '../ReflectContext'
-import HabitTracker from '../HabitTracker/HabitTracker'
+import Nav from '../Nav/Nav'
 class EntryMain extends Component {
     constructor(props) {
         super(props)
@@ -27,7 +27,7 @@ class EntryMain extends Component {
         console.log(entries, habits)
         return (
             <div className='entry-main'>
-                <nav role="navigation">Nav</nav>
+                <Nav history={this.props.history} />
                 <main role="main">
                     <header role="banner">
                         <h1>{entries.title}</h1>
