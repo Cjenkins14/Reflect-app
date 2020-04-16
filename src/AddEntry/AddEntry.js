@@ -27,22 +27,6 @@ class AddEntry extends Component {
                                 <textarea name="entry-summary" rows="15" required></textarea>
                             </div>
 
-                            <div className="form-section">
-                                <p>Habit Tracker:</p>
-
-                                <input type="checkbox" name="habits" value="false" className="habit-list" />
-                                <label htmlFor="habit-type">
-                                    <span>Habit 1</span>
-
-                                </label>
-
-                                <label htmlFor="new-habit">Add a habit</label> <br />
-                                <input type="text" id="new-habit" />
-                                <button>Add</button>
-                            </div>
-
-
-
                             <button type="submit">Submit</button>
                             <button type="reset">Reset</button>
                         </form>

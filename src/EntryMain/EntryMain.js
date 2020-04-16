@@ -11,6 +11,17 @@ class EntryMain extends Component {
     };
     static contextType = ReflectContext;
     // fetch entry byId
+    habitList = (habits) => {
+        return (
+            <ul className='habit-list'>
+                {habits.map(habit => {
+                    return <li>
+                        {habit}
+                    </li>
+                })}
+            </ul>
+        )
+    }
     render() {
         const { entries, habits } = this.context
         console.log(entries, habits)
@@ -28,7 +39,7 @@ class EntryMain extends Component {
                     </section>
 
                     <section>
-                        {HabitTracker(habits)}
+                        {this.habitList(habits)}
                     </section>
                 </main>
             </div>

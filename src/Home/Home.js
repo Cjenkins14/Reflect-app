@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import MonthList from '../MonthList/MonthList'
 import EntryList from '../EntryList/EntryList'
 import ReflectContext from '../ReflectContext'
+import Nav from '../Nav/Nav'
+
 
 class Home extends Component {
     constructor(props) {
@@ -19,7 +21,7 @@ class Home extends Component {
         const entries = this.context.entries
         return (
             <div className='home-page'>
-                <nav role="navigation">Nav</nav>
+                <Nav />
                 <header role="banner">
                     <h1>Reflect</h1>
                 </header>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 import { Route } from 'react-router';
 import Landing from './Landing/Landing';
 import Home from './Home/Home'
 import AddEntry from './AddEntry/AddEntry';
 import EntryMain from './EntryMain/EntryMain'
 import ReflectContext from './ReflectContext'
+import HabitTracker from './HabitTracker/HabitTracker'
 
 class App extends Component {
   constructor(props) {
@@ -81,6 +82,9 @@ class App extends Component {
           <Route
             path='/entry/:id'
             component={EntryMain} />
+          <Route
+            path='/habits'
+            component={HabitTracker} />
         </div>
       </ReflectContext.Provider>
     );

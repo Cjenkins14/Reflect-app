@@ -57,9 +57,10 @@ const list = [
 // One item component
 // selected prop will be passed
 const MenuItem = ({ text, selected }) => {
+    const { id } = list;
     return <div
         className={`menu-item ${selected ? 'active' : ''}`}
-    >{text}</div>;
+    ><Link to={`/home/${id}`} key={id}>{text}</Link></div>;
 };
 
 // All items component
@@ -67,7 +68,7 @@ const MenuItem = ({ text, selected }) => {
 export const Menu = (list, selected) =>
     list.map(el => {
         const { name, id } = el;
-        console.log(id)
+
         return <MenuItem text={name} key={id} selected={selected} />;
     });
 
