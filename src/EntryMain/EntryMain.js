@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './EntryMain.css'
-
+import ReflectContext from '../ReflectContext'
+import HabitTracker from '../HabitTracker/HabitTracker'
 class EntryMain extends Component {
     constructor(props) {
         super(props)
@@ -8,28 +9,26 @@ class EntryMain extends Component {
 
         }
     };
-
+    static contextType = ReflectContext;
+    // fetch entry byId
     render() {
+        const { entries, habits } = this.context
+        console.log(entries, habits)
         return (
             <div className='entry-main'>
                 <nav role="navigation">Nav</nav>
                 <main role="main">
                     <header role="banner">
-                        <h1>Entry 1</h1>
+                        <h1>{entries.title}</h1>
                     </header>
 
                     <section>
                         Entry:
-            <p>Some text for a journal entry</p>
+                        <p>{entries.content}</p>
                     </section>
 
                     <section>
-                        Habit Tracker:
-                <ul class="habit-list">
-                            <li>Habit 1</li>
-                            <li>Habit 2</li>
-                            <li>Habit 3</li>
-                        </ul>
+                        {HabitTracker(habits)}
                     </section>
                 </main>
             </div>

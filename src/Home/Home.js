@@ -3,16 +3,20 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import MonthList from '../MonthList/MonthList'
 import EntryList from '../EntryList/EntryList'
+import ReflectContext from '../ReflectContext'
 
 class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            entries: ['one', 'two', 'three', 'four']
+            entries: this.props.entries
         };
     };
+    static contextType = ReflectContext;
 
     render() {
+        console.log(this.state)
+        const entries = this.context.entries
         return (
             <div className='home-page'>
                 <nav role="navigation">Nav</nav>
@@ -24,10 +28,10 @@ class Home extends Component {
                 <section>
                     <MonthList />
                 </section>
-                {/* use entryList component */}
+
                 <section>
                     <ul className="entry-list">
-                        <EntryList entries={this.state.entries} />
+                        <EntryList entries={entries} />
                     </ul>
                 </section>
                 <Link to='/add'>

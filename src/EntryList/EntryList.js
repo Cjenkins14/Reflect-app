@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './EntryList.css'
+import React, { Component } from 'react';
+import './EntryList.css';
+import { Link } from 'react-router-dom';
 
 class EntryList extends Component {
     constructor(props) {
@@ -12,7 +13,13 @@ class EntryList extends Component {
     render() {
         return (
             this.state.entries.map(entry => {
-                return <li>{entry}</li>
+                return <li className='entry-list' key={entry.id}>
+                    <Link to={`/entry/${entry.id}`}>
+                        <button className='school-button'>
+                            {entry.title}
+                        </button>
+                    </Link>
+                </li>
             })
         )
     };

@@ -36,21 +36,6 @@ class AddEntry extends Component {
 
                                 </label>
 
-                                <input type="checkbox" name="habits" value="false" className="habit-list" />
-                                <label htmlFor="habit-type">
-                                    <span>Habit 2</span>
-                                </label>
-
-                                <input type="checkbox" name="habits" value="false" className="habit-list" />
-                                <label htmlFor="habit-type">
-                                    <span>Habit 3</span>
-                                </label>
-
-                                <input type="checkbox" name="habits" value="false" className="habit-list" />
-                                <label htmlFor="habit-type">
-                                    <span>Habit 4</span>
-                                </label> <br />
-
                                 <label htmlFor="new-habit">Add a habit</label> <br />
                                 <input type="text" id="new-habit" />
                                 <button>Add</button>
