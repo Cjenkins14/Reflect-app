@@ -9,11 +9,13 @@ import Nav from '../Nav/Nav'
 class HabitTracker extends Component {
     constructor(props) {
         super(props)
+        this.myRef = React.createRef()
         this.state = {
             habits: []
         }
     };
     static contextType = ReflectContext;
+
 
     render() {
         const { habits } = this.context
@@ -21,13 +23,17 @@ class HabitTracker extends Component {
             <div className='habit-tracker'>
                 <Nav history={this.props.history} />
                 <h1>Task Tracker</h1>
-                <ul className='habit-list'>
+                <ul>
                     {habits.map(habit => {
-                        return <li>
-                            {habit}
-                        </li>
+                        return (
+                            <li className='habit-list' key={habit.id}>
+                                <input type='checkbox' id='habit-check' />
+                                <label htmlFor='habit-check' className='strike'>{habit.habit}</label>
+                            </li>
+                        )
                     })}
                 </ul>
+
 
                 <section className='habit-entry'>
                     <label htmlFor='new-habit'>Add a Task:</label> <br />

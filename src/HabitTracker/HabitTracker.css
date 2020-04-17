@@ -1,0 +1,11 @@
+.complete {
+    text-decoration: line-through;
+}
+
+.habit-list {
+    list-style: none;
+}
+
+#habit-check:checked + .strike {
+    text-decoration: line-through;
+}

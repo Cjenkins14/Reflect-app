@@ -43,7 +43,7 @@ class App extends Component {
           content: 'ipsum lorem',
           date: new Date()
         }],
-      habits: ['Walk', 'Read', 'Write', 'Meditate']
+      habits: [{ id: 1, habit: 'Walk' }, { id: 2, habit: 'Read' }, { id: 3, habit: 'Write' }, { id: 4, habit: 'Meditate' }]
     }
   };
 

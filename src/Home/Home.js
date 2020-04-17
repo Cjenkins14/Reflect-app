@@ -17,8 +17,6 @@ class Home extends Component {
     static contextType = ReflectContext;
 
     render() {
-        console.log(this.state)
-        console.log(this.context.value.match.params.id)
         const entries = this.context.entries
         return (
             <div className='home-page'>

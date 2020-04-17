@@ -23,24 +23,23 @@ class EntryMain extends Component {
         )
     }
     render() {
-        const { entries, habits } = this.context
-        console.log(entries, habits)
+        const { entries } = this.context
+        console.log(this.props.match.params.id)
+        const thisEntry = entries.find(entry => entry.id === Number(this.props.match.params.id))
         return (
             <div className='entry-main'>
                 <Nav history={this.props.history} />
                 <main role="main">
                     <header role="banner">
-                        <h1>{entries.title}</h1>
+                        <h1>{thisEntry.title}</h1>
                     </header>
 
                     <section>
                         Entry:
-                        <p>{entries.content}</p>
+                        <p>{thisEntry.content}</p>
                     </section>
 
-                    <section>
-                        {this.habitList(habits)}
-                    </section>
+
                 </main>
             </div>
         )

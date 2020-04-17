@@ -32,8 +32,8 @@ class Nav extends Component {
                 <Link to="/add">New Entry</Link>
                 <Link to="/habits">Task Tracker</Link>
                 <Link to="/">About</Link>
-                <button class="hamburger-button" onClick={this.myFunction}>
-                    <i class="fa fa-bars"></i>
+                <button className="hamburger-button" onClick={this.myFunction}>
+                    <i className="fa fa-bars"></i>
                 </button>
             </div>
         )
