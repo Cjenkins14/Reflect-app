@@ -51,7 +51,12 @@ class App extends Component {
 
   }
   addEntry = (newEntry) => {
-
+    this.setState({
+      entries: [
+        ...this.state.entries,
+        newEntry
+      ]
+    })
   }
   deleteEntry = (entry) => {
 

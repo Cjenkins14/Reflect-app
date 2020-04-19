@@ -1,13 +1,35 @@
-import React, { Component } from 'react'
-import Nav from '../Nav/Nav'
-
+import React, { Component } from 'react';
+import Nav from '../Nav/Nav';
+import config from '../config';
+import ReflectContext from '../ReflectContext';
 
 class AddEntry extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
+    static defaultProps = {
+        history: {
+            push: () => { }
         }
+    };
+    static contextType = ReflectContext;
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const newEntry = {
+            title: e.target['entry-title'].value,
+            content: e.target['entry-text'].value,
+            monthid: ((new Date().getMonth()) + 1)
+        };
+        fetch(`${config.API_ENDPOINT}/entry`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(newEntry)
+        }).then(res => {
+            if (!res.ok)
+                return res.json().then(e => Promise.reject(e))
+            return res.json()
+        }).then(entry => {
+            this.context.addEntry(entry)
+            this.props.history.push(`/entry/${entry.id}`)
+        });
     };
 
     render() {
@@ -19,14 +41,16 @@ class AddEntry extends Component {
                         <h1>New Entry</h1>
                     </header>
                     <section>
-                        <form id="record-entry">
+                        <form
+                            onSubmit={this.handleSubmit}
+                            id="record-entry">
                             <div className="form-section">
                                 <label htmlFor="entry-title">Title:</label>
-                                <input type="text" name="entry-title" defaultValue="new date" required />
+                                <input type="text" id="entry-title" defaultValue="new date" required />
                             </div>
                             <div className="htmlForm-section">
                                 <label htmlFor="entry-text">Entry:</label>
-                                <textarea name="entry-summary" rows="15" required></textarea>
+                                <textarea id="entry-text" rows="15" required></textarea>
                             </div>
 
                             <button type="submit">Submit</button>
