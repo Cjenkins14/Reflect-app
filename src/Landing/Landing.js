@@ -8,7 +8,7 @@ class Landing extends Component {
 
     render() {
         return (
-            <body>
+            <div className='landing'>
                 <Nav history={this.props.history} />
                 <main role="main">
                     <header role="banner">
@@ -36,7 +36,7 @@ class Landing extends Component {
 
                 </main>
 
-            </body>
+            </div>
         )
     }
 }

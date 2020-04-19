@@ -48,7 +48,12 @@ class App extends Component {
   };
 
   addHabit = (newHabit) => {
-
+    this.setState({
+      habits: [
+        ...this.state.habits,
+        newHabit
+      ]
+    })
   }
   addEntry = (newEntry) => {
     this.setState({

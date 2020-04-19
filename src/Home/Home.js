@@ -5,19 +5,43 @@ import MonthList from '../MonthList/MonthList'
 import EntryList from '../EntryList/EntryList'
 import ReflectContext from '../ReflectContext'
 import Nav from '../Nav/Nav'
-
+import config from '../config'
 
 class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            entries: this.props.entries
+            entries: []
         };
+    };
+    static defaultProps = {
+        match: {
+            params: {}
+        }
     };
     static contextType = ReflectContext;
 
+    componentDidMount() {
+        fetch(`${config.API_ENDPOINT}/entry`)
+            .then((entryRes) => {
+                if (!entryRes.ok)
+                    return entryRes.json().then(e => Promise.reject(e))
+                return entryRes.json()
+            })
+            .then((entries) => {
+                this.setState({
+                    entries: entries
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     render() {
-        const entries = this.context.entries
+        const id = this.props.match.params.id
+        const entries = this.state.entries
+        console.log(entries)
         return (
             <div className='home-page'>
                 <Nav history={this.props.history} />
@@ -32,7 +56,7 @@ class Home extends Component {
 
                 <section>
                     <ul className="entry-list">
-                        <EntryList entries={entries} />
+                        <EntryList entries={entries} id={id} />
                     </ul>
                 </section>
                 <Link to='/add'>

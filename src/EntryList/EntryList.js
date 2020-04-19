@@ -9,6 +9,23 @@ class EntryList extends Component {
             entries: this.props.entries
         };
     };
+    static defaultProps = {
+
+        match: {
+            params: {}
+        }
+    }
+
+    filterMonth = () => {
+        const entries = this.state.entries
+        return entries.filter(entry => entry.monthid === Number(this.props.id))
+    }
+
+    componentDidMount() {
+        this.setState({
+            entries: this.filterMonth(this.state.entries)
+        }, () => { console.log(this.state.entries) })
+    }
 
     render() {
         return (
