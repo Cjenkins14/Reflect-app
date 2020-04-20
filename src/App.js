@@ -12,38 +12,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      entries: [
-        {
-          title: 'entry1',
-          id: 1,
-          content: 'ipsum lorem',
-          date: new Date()
-        },
-        {
-          title: 'entry2',
-          id: 2,
-          content: 'ipsum lorem',
-          date: new Date()
-        },
-        {
-          title: 'entry3',
-          id: 3,
-          content: 'ipsum lorem',
-          date: new Date()
-        },
-        {
-          title: 'entry4',
-          id: 4,
-          content: 'ipsum lorem',
-          date: new Date()
-        },
-        {
-          title: 'entry5',
-          id: 5,
-          content: 'ipsum lorem',
-          date: new Date()
-        }],
-      habits: [{ id: 1, habit: 'Walk' }, { id: 2, habit: 'Read' }, { id: 3, habit: 'Write' }, { id: 4, habit: 'Meditate' }]
+      entries: [],
+      habits: []
     }
   };
 
@@ -89,7 +59,43 @@ class App extends Component {
             exact path='/'
             component={Landing} />
           <Route
-            exact path='/home/:id'
+            exact path='/Jan/:id'
+            component={Home} />
+          <Route
+            exact path='/Feb/:id'
+            component={Home} />
+          <Route
+            exact path='/Mar/:id'
+            component={Home} />
+          <Route
+            exact path='/Apr/:id'
+            component={Home} />
+          <Route
+            exact path='/May/:id'
+            component={Home} />
+          <Route
+            exact path='/Jun/:id'
+            component={Home} />
+          <Route
+            exact path='/Jul/:id'
+            component={Home} />
+          <Route
+            exact path='/Aug/:id'
+            component={Home} />
+          <Route
+            exact path='/Sep/:id'
+            component={Home} />
+          <Route
+            exact path='/Oct/:id'
+            component={Home} />
+          <Route
+            exact path='/Nov/:id'
+            component={Home} />
+          <Route
+            exact path='/Nov/:id'
+            component={Home} />
+          <Route
+            exact path='/Dec/:id'
             component={Home} />
           <Route
             path='/add'

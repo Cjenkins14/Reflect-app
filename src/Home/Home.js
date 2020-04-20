@@ -21,15 +21,15 @@ class Home extends Component {
     };
     static contextType = ReflectContext;
 
-    filterMonth = (entries) => {
-        console.log(entries)
-        let filteredEntries = entries.filter(entry => entry.monthid === Number(this.props.match.params.id))
-        console.log(filteredEntries)
-        return filteredEntries
-    }
+    // filterMonth = (entries, id) => {
+    // console.log(entries)
+    // let filteredEntries = entries.filter(entry => entry.monthid === Number(id))
+    // console.log(filteredEntries)
+    // return filteredEntries
+    // }
 
     componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/entry`)
+        fetch(`${config.API_ENDPOINT}/home/${this.props.match.params.id}`)
             .then((entryRes) => {
                 if (!entryRes.ok)
                     return entryRes.json().then(e => Promise.reject(e))
@@ -37,7 +37,7 @@ class Home extends Component {
             })
             .then((entries) => {
                 this.setState({
-                    entries: this.filterMonth(entries)
+                    entries: entries
                 }, () => { console.log(this.state.entries) })
             })
             .catch(error => {
@@ -50,7 +50,7 @@ class Home extends Component {
         const entries = this.state.entries
         console.log(entries)
         return (
-            <div className='home-page'>
+            <div className='home-page' >
                 <Nav history={this.props.history} />
                 <header role="banner">
                     <h1>Reflect</h1>
@@ -59,11 +59,13 @@ class Home extends Component {
                 {/* fetch with month id when clicked */}
                 <section>
                     <MonthList />
-                </section>
+                </section >
 
                 <section>
                     <ul className="entry-list">
-                        <EntryList entries={this.state.entries} />
+                        {(entries
+                            ? <EntryList entries={this.state.entries} />
+                            : <li>Please select a month</li>)}
                     </ul>
                 </section>
                 <Link to='/add'>

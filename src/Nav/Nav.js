@@ -28,7 +28,7 @@ class Nav extends Component {
         return (
             <div className="topnav" id="myTopnav" ref={this.myRef}>
                 <button onClick={this.goBack}>Back</button>
-                <Link to="/home/01" >Home</Link>
+                <Link to="/jan/01" >Home</Link>
                 <Link to="/add">New Entry</Link>
                 <Link to="/habits">Task Tracker</Link>
                 <Link to="/">About</Link>

@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 
 const list = [
     {
-        name: 'January',
+        name: 'Jan',
         id: '01'
     },
     {
-        name: 'February',
+        name: 'Feb',
         id: '02'
     },
     {
-        name: 'March',
+        name: 'Mar',
         id: '03'
     },
     {
-        name: 'April',
+        name: 'Apr',
         id: '04'
     },
     {
@@ -25,42 +25,42 @@ const list = [
         id: '05'
     },
     {
-        name: 'June',
+        name: 'Jun',
         id: '06'
     },
     {
-        name: 'July',
+        name: 'Jul',
         id: '07'
     },
     {
-        name: 'August',
+        name: 'Aug',
         id: '08'
     },
     {
-        name: 'September',
+        name: 'Sep',
         id: '09'
     },
     {
-        name: 'October',
+        name: 'Oct',
         id: '10'
     },
     {
-        name: 'November',
+        name: 'Nov',
         id: '11'
     },
     {
-        name: 'December',
+        name: 'Dec',
         id: '12'
     }
 ];
 
 // One item component
 // selected prop will be passed
-const MenuItem = ({ text, selected, id }) => {
+const MenuItem = ({ text, selected, id, name }) => {
 
     return <div
         className={`menu-item ${selected ? 'active' : ''}`}
-    ><Link to={`/home/${id}`} key={id}>{text}</Link></div>;
+    ><Link to={`/${name}/${id}`} key={id}>{text}</Link></div>;
 };
 
 // All items component
@@ -68,7 +68,7 @@ const MenuItem = ({ text, selected, id }) => {
 export const Menu = (list, selected) =>
     list.map(el => {
         const { name, id } = el;
-
+        console.log(name)
         return <MenuItem className='month' id={id} text={name} key={id} selected={selected} />;
     });
 
