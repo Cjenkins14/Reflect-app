@@ -60,7 +60,7 @@ const MenuItem = ({ text, selected, id, name }) => {
 
     return <div
         className={`menu-item ${selected ? 'active' : ''}`}
-    ><Link to={`/${name}/${id}`} key={id}>{text}</Link></div>;
+    ><Link to={`/${text}/${id}`} key={id}>{text}</Link></div>;
 };
 
 // All items component
