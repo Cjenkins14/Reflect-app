@@ -47,7 +47,7 @@ class HabitTracker extends Component {
     }
 
     handleDelete = e => {
-        console.log(this.myRef['key'].value)
+        console.log(e.target)
     }
 
     componentDidMount() {
@@ -77,7 +77,7 @@ class HabitTracker extends Component {
                 <ul>
                     {habits.map(habit => {
                         return (
-                            <li className='habit-list' id='haibt-id' key={habit.id} ref={this.myRef}>
+                            <li className='habit-list' id='habit-id' newid={habit.id} key={habit.id} ref={this.myRef}>
                                 <input type='checkbox' id='habit-check' />
                                 <label htmlFor='habit-check' className='strike'>{habit.habit}</label>
                                 <button onClick={this.handleDelete}>X</button>

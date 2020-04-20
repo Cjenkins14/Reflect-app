@@ -21,6 +21,13 @@ class Home extends Component {
     };
     static contextType = ReflectContext;
 
+    filterMonth = (entries) => {
+        console.log(entries)
+        let filteredEntries = entries.filter(entry => entry.monthid === Number(this.props.match.params.id))
+        console.log(filteredEntries)
+        return filteredEntries
+    }
+
     componentDidMount() {
         fetch(`${config.API_ENDPOINT}/entry`)
             .then((entryRes) => {
@@ -30,16 +37,16 @@ class Home extends Component {
             })
             .then((entries) => {
                 this.setState({
-                    entries: entries
-                })
+                    entries: this.filterMonth(entries)
+                }, () => { console.log(this.state.entries) })
             })
             .catch(error => {
                 console.log(error)
             })
     }
 
+
     render() {
-        const id = this.props.match.params.id
         const entries = this.state.entries
         console.log(entries)
         return (
@@ -56,7 +63,7 @@ class Home extends Component {
 
                 <section>
                     <ul className="entry-list">
-                        <EntryList entries={entries} id={id} />
+                        <EntryList entries={this.state.entries} />
                     </ul>
                 </section>
                 <Link to='/add'>

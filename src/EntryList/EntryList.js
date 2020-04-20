@@ -16,20 +16,11 @@ class EntryList extends Component {
         }
     }
 
-    filterMonth = () => {
-        const entries = this.state.entries
-        return entries.filter(entry => entry.monthid === Number(this.props.id))
-    }
-
-    componentDidMount() {
-        this.setState({
-            entries: this.filterMonth(this.state.entries)
-        }, () => { console.log(this.state.entries) })
-    }
-
     render() {
+        console.log(this.state.entries)
         return (
             this.state.entries.map(entry => {
+                console.log(entry)
                 return <li className='entry-list' key={entry.id}>
                     <Link to={`/entry/${entry.id}`}>
                         <button className='school-button'>
