@@ -65,7 +65,7 @@ class HabitTracker extends Component {
             .then(() => {
                 this.context.deleteHabit(habitId)
                 this.props.onDeleteHabit()
-                this.props.history.push('/habits')
+                this.props.history.goBack()
             })
             .catch(error => {
                 console.error({

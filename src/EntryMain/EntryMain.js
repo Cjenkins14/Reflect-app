@@ -13,6 +13,7 @@ class EntryMain extends Component {
         }
     };
     static defaultProps = {
+        deleteEntry: () => { },
         match: {
             params: {}
         }
@@ -39,6 +40,32 @@ class EntryMain extends Component {
             })
     }
 
+    handleDelete = e => {
+        e.preventDefault();
+        const entryId = this.props.match.params.id;
+        fetch(`${config.API_ENDPOINT}/entry/${entryId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                return res
+            })
+            .then(() => {
+                this.context.deleteEntry(entryId)
+                this.props.deleteEntry(entryId)
+                this.props.history.goBack()
+            })
+            .catch(error => {
+                console.error({
+                    error
+                })
+            })
+    }
+
 
     render() {
         const entry = this.state.entry
@@ -57,7 +84,7 @@ class EntryMain extends Component {
                         Entry:
                         <p>{entry.content}</p>
                     </section>
-
+                    <button onClick={this.handleDelete}>Delete</button>
 
                 </main>
             </div>
