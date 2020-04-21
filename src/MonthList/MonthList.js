@@ -68,7 +68,6 @@ const MenuItem = ({ text, selected, id, name }) => {
 export const Menu = (list, selected) =>
     list.map(el => {
         const { name, id } = el;
-        console.log(name)
         return <MenuItem className='month' id={id} text={name} key={id} selected={selected} />;
     });
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './EntryList.css';
 import { Link } from 'react-router-dom';
 
+
 class EntryList extends Component {
     constructor(props) {
         super(props)
@@ -10,14 +11,15 @@ class EntryList extends Component {
         };
     };
     static defaultProps = {
-
         match: {
             params: {}
         }
     }
 
-    render() {
-        console.log(this.state.entries)
+    componentDidMount() {
+
+    }
+    renderEntries = () => {
         return (
             this.state.entries.map(entry => {
                 console.log(entry)
@@ -30,6 +32,27 @@ class EntryList extends Component {
                 </li>
             })
         )
+    }
+
+    render() {
+        console.log(this.state.entries)
+        const entries = this.state.entries
+        console.log(entries === true)
+        if (entries) {
+            return this.state.entries.map(entry => {
+                console.log(entry)
+                return <li className='entry-list' key={entry.id}>
+                    <Link to={`/entry/${entry.id}`}>
+                        <button className='school-button'>
+                            {entry.title}
+                        </button>
+                    </Link>
+                </li>
+            })
+        } else {
+            return <li>Please select a month</li>
+        }
+
     };
 };
 

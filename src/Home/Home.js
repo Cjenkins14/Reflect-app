@@ -29,7 +29,8 @@ class Home extends Component {
     // }
 
     componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/home/${this.props.match.params.id}`)
+        const id = this.props.match.params.id
+        fetch(`${config.API_ENDPOINT}/home/${id}`)
             .then((entryRes) => {
                 if (!entryRes.ok)
                     return entryRes.json().then(e => Promise.reject(e))
@@ -47,8 +48,9 @@ class Home extends Component {
 
 
     render() {
-        const entries = this.state.entries
-        console.log(entries)
+        const id = this.props.match.params.id;
+        const entries = this.state.entries;
+        console.log(entries === true)
         return (
             <div className='home-page' >
                 <Nav history={this.props.history} />
@@ -63,9 +65,9 @@ class Home extends Component {
 
                 <section>
                     <ul className="entry-list">
-                        {(entries
-                            ? <EntryList entries={this.state.entries} />
-                            : <li>Please select a month</li>)}
+                        {(!entries
+                            ? <EntryList entries={entries} />
+                            : <li>Please select</li>)}
                     </ul>
                 </section>
                 <Link to='/add'>
