@@ -7,7 +7,7 @@ class EntryList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            entries: this.props.entries
+            entries: []
         };
     };
     static defaultProps = {
@@ -27,7 +27,7 @@ class EntryList extends Component {
             .then((entries) => {
                 this.setState({
                     entries: entries
-                }, () => { console.log(this.state.entries) })
+                }, () => { console.log() })
             })
             .catch(error => {
                 console.log(error)
@@ -50,16 +50,10 @@ class EntryList extends Component {
 
     render() {
         const entries = this.state.entries
-        if (entries) {
-            return this.state.entries.map(entry => {
-                return <li className='entry-list' key={entry.id}>
-                    <Link to={`/entry/${entry.id}`}>
-                        <button className='school-button'>
-                            {entry.title}
-                        </button>
-                    </Link>
-                </li>
-            })
+
+        if (entries.length) {
+            return this.renderEntries()
+
         } else {
             return <li>No entries found</li>
         }

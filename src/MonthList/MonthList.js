@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './MonthList.css';
 import { Link } from 'react-router-dom';
+import ReflectContext from '../ReflectContext'
 
 const list = [
     {
@@ -56,7 +57,7 @@ const list = [
 
 // One item component
 // selected prop will be passed
-const MenuItem = ({ text, selected, id, name }) => {
+const MenuItem = ({ text, selected, id }) => {
 
     return <div
         className={`menu-item ${selected ? 'active' : ''}`}
@@ -89,13 +90,17 @@ const selected = 'item1';
 class MonthList extends Component {
     constructor(props) {
         super(props);
-        // call it again if items count changes
         this.menuItems = Menu(list, selected);
+        this.state = {
+            selected,
+            list: []
+        };
     }
 
-    state = {
-        selected
-    };
+    componentDidMount() {
+
+    }
+
 
     onSelect = key => {
         this.setState({ selected: key });

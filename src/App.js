@@ -15,9 +15,64 @@ class App extends Component {
     this.state = {
       entries: [],
       habits: [],
-      months: []
+      months: [
+        {
+          name: 'January',
+          id: '01'
+        },
+        {
+          name: 'February',
+          id: '02'
+        },
+        {
+          name: 'March',
+          id: '03'
+        },
+        {
+          name: 'April',
+          id: '04'
+        },
+        {
+          name: 'May',
+          id: '05'
+        },
+        {
+          name: 'June',
+          id: '06'
+        },
+        {
+          name: 'July',
+          id: '07'
+        },
+        {
+          name: 'August',
+          id: '08'
+        },
+        {
+          name: 'September',
+          id: '09'
+        },
+        {
+          name: 'October',
+          id: '10'
+        },
+        {
+          name: 'November',
+          id: '11'
+        },
+        {
+          name: 'December',
+          id: '12'
+        }
+      ]
     }
   };
+
+  deleteHabit = habitId => {
+    this.setState({
+      habits: this.state.habits.filter(habit => habit.id !== habitId)
+    })
+  }
 
   addHabit = (newHabit) => {
     this.setState({
@@ -38,31 +93,25 @@ class App extends Component {
   deleteEntry = (entry) => {
 
   }
+
+
   componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/home`)
-      .then((homeRes) => {
-        if (!homeRes.ok)
-          return homeRes.json().then(e => Promise.reject(e))
-        return homeRes.json()
+    fetch(`${config.API_ENDPOINT}/habits`)
+      .then((habitRes) => {
+        if (!habitRes.ok)
+          return habitRes.json().then(e => Promise.reject(e))
+        return habitRes.json()
       })
-      .then((months) => {
+      .then(habits => {
+        console.log(habits)
         this.setState({
-          months: months
-        }, () => { console.log(this.state.months) })
+          habits: habits
+        }, () => { console.log(this.state.habits) })
       })
       .catch(error => {
         console.log(error)
       })
-  }
 
-  renderMonthRoutes() {
-    this.state.months.map(month => {
-      return (
-        <Route
-          exact path={`/${month.name}/:id`}
-          component={Home} />
-      )
-    })
   }
 
 
@@ -75,49 +124,19 @@ class App extends Component {
       deleteHabit: this.deleteHabit,
       addEntry: this.addEntry,
       deleteEntry: this.deleteEntry,
+      months: this.state.months
     }
     return (
       <ReflectContext.Provider value={value}>
         <div className="app">
+          {this.state.months.map(month => {
+            return <Route
+              exact path={`/${month.name}/:id`}
+              component={Home} />
+          })}
           <Route
             exact path='/'
             component={Landing} />
-          <Route
-            exact path='/January/:id'
-            component={Home} />
-          <Route
-            exact path='/February/:id'
-            component={Home} />
-          <Route
-            exact path='/March/:id'
-            component={Home} />
-          <Route
-            exact path='/April/:id'
-            component={Home} />
-          <Route
-            exact path='/May/:id'
-            component={Home} />
-          <Route
-            exact path='/June/:id'
-            component={Home} />
-          <Route
-            exact path='/July/:id'
-            component={Home} />
-          <Route
-            exact path='/August/:id'
-            component={Home} />
-          <Route
-            exact path='/September/:id'
-            component={Home} />
-          <Route
-            exact path='/October/:id'
-            component={Home} />
-          <Route
-            exact path='/November/:id'
-            component={Home} />
-          <Route
-            exact path='/December/:id'
-            component={Home} />
           <Route
             path='/add'
             component={AddEntry} />
