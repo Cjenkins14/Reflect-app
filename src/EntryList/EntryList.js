@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './EntryList.css';
 import { Link } from 'react-router-dom';
-
+import config from '../config'
 
 class EntryList extends Component {
     constructor(props) {
@@ -17,12 +17,26 @@ class EntryList extends Component {
     }
 
     componentDidMount() {
-
+        const id = this.props.id
+        fetch(`${config.API_ENDPOINT}/home/${id}`)
+            .then((entryRes) => {
+                if (!entryRes.ok)
+                    return entryRes.json().then(e => Promise.reject(e))
+                return entryRes.json()
+            })
+            .then((entries) => {
+                this.setState({
+                    entries: entries
+                }, () => { console.log(this.state.entries) })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
+
     renderEntries = () => {
         return (
             this.state.entries.map(entry => {
-                console.log(entry)
                 return <li className='entry-list' key={entry.id}>
                     <Link to={`/entry/${entry.id}`}>
                         <button className='school-button'>
@@ -35,12 +49,9 @@ class EntryList extends Component {
     }
 
     render() {
-        console.log(this.state.entries)
         const entries = this.state.entries
-        console.log(entries === true)
         if (entries) {
             return this.state.entries.map(entry => {
-                console.log(entry)
                 return <li className='entry-list' key={entry.id}>
                     <Link to={`/entry/${entry.id}`}>
                         <button className='school-button'>
@@ -50,7 +61,7 @@ class EntryList extends Component {
                 </li>
             })
         } else {
-            return <li>Please select a month</li>
+            return <li>No entries found</li>
         }
 
     };

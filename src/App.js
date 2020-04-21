@@ -7,13 +7,15 @@ import AddEntry from './AddEntry/AddEntry';
 import EntryMain from './EntryMain/EntryMain'
 import ReflectContext from './ReflectContext'
 import HabitTracker from './HabitTracker/HabitTracker'
+import config from './config'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       entries: [],
-      habits: []
+      habits: [],
+      months: []
     }
   };
 
@@ -36,8 +38,31 @@ class App extends Component {
   deleteEntry = (entry) => {
 
   }
-  handleEntryUpdate = (update) => {
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/home`)
+      .then((homeRes) => {
+        if (!homeRes.ok)
+          return homeRes.json().then(e => Promise.reject(e))
+        return homeRes.json()
+      })
+      .then((months) => {
+        this.setState({
+          months: months
+        }, () => { console.log(this.state.months) })
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
+  renderMonthRoutes() {
+    this.state.months.map(month => {
+      return (
+        <Route
+          exact path={`/${month.name}/:id`}
+          component={Home} />
+      )
+    })
   }
 
 
@@ -50,7 +75,6 @@ class App extends Component {
       deleteHabit: this.deleteHabit,
       addEntry: this.addEntry,
       deleteEntry: this.deleteEntry,
-      handleEntryUpdate: this.handleEntryUpdate
     }
     return (
       <ReflectContext.Provider value={value}>
@@ -59,43 +83,40 @@ class App extends Component {
             exact path='/'
             component={Landing} />
           <Route
-            exact path='/Jan/:id'
+            exact path='/January/:id'
             component={Home} />
           <Route
-            exact path='/Feb/:id'
+            exact path='/February/:id'
             component={Home} />
           <Route
-            exact path='/Mar/:id'
+            exact path='/March/:id'
             component={Home} />
           <Route
-            exact path='/Apr/:id'
+            exact path='/April/:id'
             component={Home} />
           <Route
             exact path='/May/:id'
             component={Home} />
           <Route
-            exact path='/Jun/:id'
+            exact path='/June/:id'
             component={Home} />
           <Route
-            exact path='/Jul/:id'
+            exact path='/July/:id'
             component={Home} />
           <Route
-            exact path='/Aug/:id'
+            exact path='/August/:id'
             component={Home} />
           <Route
-            exact path='/Sep/:id'
+            exact path='/September/:id'
             component={Home} />
           <Route
-            exact path='/Oct/:id'
+            exact path='/October/:id'
             component={Home} />
           <Route
-            exact path='/Nov/:id'
+            exact path='/November/:id'
             component={Home} />
           <Route
-            exact path='/Nov/:id'
-            component={Home} />
-          <Route
-            exact path='/Dec/:id'
+            exact path='/December/:id'
             component={Home} />
           <Route
             path='/add'

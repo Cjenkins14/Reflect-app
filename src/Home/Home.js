@@ -29,21 +29,21 @@ class Home extends Component {
     // }
 
     componentDidMount() {
-        const id = this.props.match.params.id
-        fetch(`${config.API_ENDPOINT}/home/${id}`)
-            .then((entryRes) => {
-                if (!entryRes.ok)
-                    return entryRes.json().then(e => Promise.reject(e))
-                return entryRes.json()
-            })
-            .then((entries) => {
-                this.setState({
-                    entries: entries
-                }, () => { console.log(this.state.entries) })
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        // const id = this.props.match.params.id
+        // fetch(`${config.API_ENDPOINT}/home/${id}`)
+        // .then((entryRes) => {
+        // if (!entryRes.ok)
+        // return entryRes.json().then(e => Promise.reject(e))
+        // return entryRes.json()
+        // })
+        // .then((entries) => {
+        // this.setState({
+        // entries: entries
+        // }, () => { console.log(this.state.entries) })
+        // })
+        // .catch(error => {
+        // console.log(error)
+        // })
     }
 
 
@@ -65,8 +65,8 @@ class Home extends Component {
 
                 <section>
                     <ul className="entry-list">
-                        {(!entries
-                            ? <EntryList entries={entries} />
+                        {(entries
+                            ? <EntryList entries={entries} id={id} />
                             : <li>Please select</li>)}
                     </ul>
                 </section>

@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom';
 
 const list = [
     {
-        name: 'Jan',
+        name: 'January',
         id: '01'
     },
     {
-        name: 'Feb',
+        name: 'February',
         id: '02'
     },
     {
-        name: 'Mar',
+        name: 'March',
         id: '03'
     },
     {
-        name: 'Apr',
+        name: 'April',
         id: '04'
     },
     {
@@ -25,31 +25,31 @@ const list = [
         id: '05'
     },
     {
-        name: 'Jun',
+        name: 'June',
         id: '06'
     },
     {
-        name: 'Jul',
+        name: 'July',
         id: '07'
     },
     {
-        name: 'Aug',
+        name: 'August',
         id: '08'
     },
     {
-        name: 'Sep',
+        name: 'September',
         id: '09'
     },
     {
-        name: 'Oct',
+        name: 'October',
         id: '10'
     },
     {
-        name: 'Nov',
+        name: 'November',
         id: '11'
     },
     {
-        name: 'Dec',
+        name: 'December',
         id: '12'
     }
 ];
