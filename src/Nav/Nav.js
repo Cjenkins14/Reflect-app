@@ -27,7 +27,7 @@ class Nav extends Component {
     render() {
         return (
             <div className="topnav" id="myTopnav" ref={this.myRef}>
-                <button onClick={this.goBack}>Back</button>
+                <button onClick={this.goBack} className='back-button'>Back</button>
                 <Link to="/january/01" >Home</Link>
                 <Link to="/add">New Entry</Link>
                 <Link to="/habits">Task Tracker</Link>

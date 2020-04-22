@@ -108,7 +108,7 @@ class HabitTracker extends Component {
                 <div className='habit-tracker'>
                     <Nav history={this.props.history} />
                     <h1>Task Tracker</h1>
-                    <p>No habits to display</p>
+                    <p>No tasks to display</p>
                     <form ref={this.formRef} className='habit-entry' onSubmit={this.handleSubmit}>
                         <label htmlFor='new-habit'>Add a Task:</label> <br />
                         <input type='text' id='new-habit' placeholder='New goals?' />
