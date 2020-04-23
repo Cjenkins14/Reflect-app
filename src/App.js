@@ -96,6 +96,7 @@ class App extends Component {
 
 
   componentDidMount() {
+    console.log('app mount')
     fetch(`${config.API_ENDPOINT}/habits`)
       .then((habitRes) => {
         if (!habitRes.ok)

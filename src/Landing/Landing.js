@@ -26,8 +26,8 @@ class Landing extends Component {
                     </section>
 
                     <section>
-                        Track your progress
-            <p>With the progress section, you can view how many entries you have made for the month, and how many of your habits you maintained </p>
+                        View your progress
+            <p>As opposed to typical journaling, Reflect makes it easier to find old entries, and view how many entries you have made for the month</p>
                     </section>
                     <section>
                         <Link to='/january/01'>

@@ -70,14 +70,13 @@ class EntryMain extends Component {
     render() {
         const entry = this.state.entry
         const date = entry.date
-        console.log(date)
         return (
             <div className='entry-main'>
                 <Nav history={this.props.history} />
                 <main role="main">
                     <header role="banner">
                         <h1>{entry.title}</h1>
-                        <p>Date written: {date}</p>
+                        <p>Date written: {new Date(date).toDateString()}</p>
                     </header>
 
                     <section>
