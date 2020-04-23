@@ -1,0 +1,14 @@
+.input-list {
+    list-style: none;
+}
+
+#entry-text {
+    height: 200px;
+}
+
+.entry {
+    padding-right: 10px;
+}
+.title {
+    padding-right: 18px;
+}

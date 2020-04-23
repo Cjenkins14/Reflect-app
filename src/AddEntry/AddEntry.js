@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
 import config from '../config';
 import ReflectContext from '../ReflectContext';
+import './AddEntry.css'
 
 class AddEntry extends Component {
     static defaultProps = {
@@ -43,15 +44,18 @@ class AddEntry extends Component {
                     <section>
                         <form
                             onSubmit={this.handleSubmit}
-                            id="record-entry">
-                            <div className="form-section">
-                                <label htmlFor="entry-title">Title:</label>
-                                <input type="text" id="entry-title" defaultValue="new date" required />
-                            </div>
-                            <div className="htmlForm-section">
-                                <label htmlFor="entry-text">Entry:</label>
-                                <textarea id="entry-text" rows="15" required></textarea>
-                            </div>
+                            id="record-entry"
+                        >
+                            <ul className='input-list'>
+                                <li >
+                                    <label htmlFor="entry-title" className='title'>Title:</label>
+                                    <input type="text" id="entry-title" defaultValue="new date" required />
+                                </li>
+                                <li >
+                                    <label htmlFor="entry-text" className='entry'>Entry:</label>
+                                    <textarea id="entry-text" rows="15" required></textarea>
+                                </li>
+                            </ul>
 
                             <button type="submit">Submit</button>
                             <button type="reset">Reset</button>

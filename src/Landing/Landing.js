@@ -29,11 +29,11 @@ class Landing extends Component {
                         Track your progress
             <p>With the progress section, you can view how many entries you have made for the month, and how many of your habits you maintained </p>
                     </section>
-                    {/* button to home page  */}
-                    <Link to='/january/01'>
-                        <button>Demo</button>
-                    </Link>
-
+                    <section>
+                        <Link to='/january/01'>
+                            <button className='demo-button'>Demo</button>
+                        </Link>
+                    </section>
                 </main>
 
             </div>
