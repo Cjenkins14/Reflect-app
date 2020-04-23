@@ -2,58 +2,7 @@ import React, { Component } from 'react';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './MonthList.css';
 import { Link } from 'react-router-dom';
-import ReflectContext from '../ReflectContext'
-
-const list = [
-    {
-        name: 'January',
-        id: '01'
-    },
-    {
-        name: 'February',
-        id: '02'
-    },
-    {
-        name: 'March',
-        id: '03'
-    },
-    {
-        name: 'April',
-        id: '04'
-    },
-    {
-        name: 'May',
-        id: '05'
-    },
-    {
-        name: 'June',
-        id: '06'
-    },
-    {
-        name: 'July',
-        id: '07'
-    },
-    {
-        name: 'August',
-        id: '08'
-    },
-    {
-        name: 'September',
-        id: '09'
-    },
-    {
-        name: 'October',
-        id: '10'
-    },
-    {
-        name: 'November',
-        id: '11'
-    },
-    {
-        name: 'December',
-        id: '12'
-    }
-];
+import list from '../Months'
 
 // One item component
 // selected prop will be passed
@@ -61,7 +10,7 @@ const MenuItem = ({ text, selected, id }) => {
 
     return <div
         className={`menu-item ${selected ? 'active' : ''}`}
-    ><Link to={`/${text}/${id}`} key={id}>{text}</Link></div>;
+    ><Link to={`/${text}`} key={id}>{text}</Link></div>;
 };
 
 // All items component

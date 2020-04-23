@@ -8,6 +8,7 @@ import EntryMain from './EntryMain/EntryMain'
 import ReflectContext from './ReflectContext'
 import HabitTracker from './HabitTracker/HabitTracker'
 import config from './config'
+import months from './Months'
 
 class App extends Component {
   constructor(props) {
@@ -15,62 +16,13 @@ class App extends Component {
     this.state = {
       entries: [],
       habits: [],
-      months: [
-        {
-          name: 'January',
-          id: '01'
-        },
-        {
-          name: 'February',
-          id: '02'
-        },
-        {
-          name: 'March',
-          id: '03'
-        },
-        {
-          name: 'April',
-          id: '04'
-        },
-        {
-          name: 'May',
-          id: '05'
-        },
-        {
-          name: 'June',
-          id: '06'
-        },
-        {
-          name: 'July',
-          id: '07'
-        },
-        {
-          name: 'August',
-          id: '08'
-        },
-        {
-          name: 'September',
-          id: '09'
-        },
-        {
-          name: 'October',
-          id: '10'
-        },
-        {
-          name: 'November',
-          id: '11'
-        },
-        {
-          name: 'December',
-          id: '12'
-        }
-      ]
+      months: months
     }
   };
 
   deleteHabit = habitId => {
     this.setState({
-      habits: this.state.habits.filter(habit => habit.id !== habitId)
+      habits: this.state.habits.filter(habit => habit.id !== Number(habitId))
     })
   }
 
@@ -132,8 +84,8 @@ class App extends Component {
         <div className="app">
           {this.state.months.map(month => {
             return <Route
-              exact path={`/${month.name}/:id`}
-              component={Home} />
+              exact path={`/${month.name}`}
+              render={(routeProps) => <Home month={month} {...routeProps} />} />
           })}
           <Route
             exact path='/'

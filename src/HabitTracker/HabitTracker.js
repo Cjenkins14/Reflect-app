@@ -12,7 +12,6 @@ class HabitTracker extends Component {
     constructor(props) {
         super(props)
         this.myRef = React.createRef()
-        this.formRef = React.createRef()
 
     };
     static defaultProps = {
@@ -28,6 +27,7 @@ class HabitTracker extends Component {
         const newHabit = {
             habit: e.target['new-habit'].value
         };
+        e.target.reset();
         fetch(`${config.API_ENDPOINT}/habits`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
@@ -47,6 +47,8 @@ class HabitTracker extends Component {
             })
     }
 
+
+
     handleDelete = e => {
         console.log(e.target.parentElement.getAttribute('newid'))
         e.preventDefault();
@@ -64,8 +66,6 @@ class HabitTracker extends Component {
             })
             .then(() => {
                 this.context.deleteHabit(habitId)
-                this.props.onDeleteHabit()
-                this.props.history.goBack()
             })
             .catch(error => {
                 console.error({
@@ -109,7 +109,7 @@ class HabitTracker extends Component {
                     <Nav history={this.props.history} />
                     <h1>Task Tracker</h1>
                     <p>No tasks to display</p>
-                    <form ref={this.formRef} className='habit-entry' onSubmit={this.handleSubmit}>
+                    <form className='habit-entry' onSubmit={this.handleSubmit}>
                         <label htmlFor='new-habit'>Add a Task:</label> <br />
                         <input type='text' id='new-habit' placeholder='New goals?' />
                         <button>Add</button>

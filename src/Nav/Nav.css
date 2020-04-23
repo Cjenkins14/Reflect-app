@@ -48,6 +48,9 @@
   display: none;
 }
 
+.hidden-button {
+  display: none;
+}
 
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}

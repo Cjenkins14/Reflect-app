@@ -7,6 +7,7 @@ import ReflectContext from '../ReflectContext'
 import Nav from '../Nav/Nav'
 import config from '../config'
 
+
 class Home extends Component {
     constructor(props) {
         super(props)
@@ -29,7 +30,7 @@ class Home extends Component {
     // }
 
     componentDidMount() {
-        const id = this.props.match.params.id
+        const id = this.props.month.id
         fetch(`${config.API_ENDPOINT}/home/${id}`)
             .then((entryRes) => {
                 if (!entryRes.ok)
@@ -48,7 +49,7 @@ class Home extends Component {
 
 
     render() {
-        const id = this.props.match.params.id;
+        const id = this.props.month.id;
         const entries = this.state.entries;
         return (
             <div className='home-page' >
@@ -70,7 +71,7 @@ class Home extends Component {
                     </ul>
                 </section>
                 <Link to='/add'>
-                    <button>New Entry</button>
+                    <button class='entry-button'>New Entry</button>
                 </Link>
             </div >
         );

@@ -1,3 +1,15 @@
 .entry-list {
     list-style: none;
 }
+
+.entry-button {
+  height: 4em;
+  width: 6em;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+}
+.entry-button:hover {
+  background-color: gray;
+  color: black;
+}

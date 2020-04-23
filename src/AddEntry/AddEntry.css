@@ -1,9 +1,13 @@
 .input-list {
     list-style: none;
+    padding: 0;
 }
 
 #entry-text {
     height: 200px;
+}
+#entry-text, #entry-title {
+    width: 40%
 }
 
 .entry {

@@ -39,7 +39,7 @@ class EntryList extends Component {
             this.state.entries.map(entry => {
                 return <li className='entry-list' key={entry.id}>
                     <Link to={`/entry/${entry.id}`}>
-                        <button className='school-button'>
+                        <button className='entry-button'>
                             {entry.title}
                         </button>
                     </Link>

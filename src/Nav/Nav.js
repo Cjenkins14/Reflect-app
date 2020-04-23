@@ -27,12 +27,13 @@ class Nav extends Component {
     render() {
         return (
             <div className="topnav" id="myTopnav" ref={this.myRef}>
-                <Link to="/january/01" >Entries</Link>
+                <Link to="/">Home</Link>
+                <Link to="/january" >Entries</Link>
                 <Link to="/add">New Entry</Link>
                 <Link to="/habits">Task Tracker</Link>
-                <Link to="/">Home</Link>
                 <button className="hamburger-button" onClick={this.myFunction}>
                     <i className="fa fa-bars"></i>
+                    <span className='hidden-button'>Menu</span>
                 </button>
             </div>
         )
