@@ -30,7 +30,7 @@ class Landing extends Component {
             <p>As opposed to typical journaling, Reflect makes it easier to find old entries, and view how many entries you have made for the month</p>
                     </section>
                     <section>
-                        <Link to='/january/01'>
+                        <Link to='/january'>
                             <button className='demo-button'>Demo</button>
                         </Link>
                     </section>
