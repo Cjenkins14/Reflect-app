@@ -14,11 +14,17 @@ class AddEntry extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        const date = e.target['entry-date'].value
+        console.log(date)
+        console.log(new Date(date))
+        console.log(new Date(date).getMonth() + 1)
         const newEntry = {
             title: e.target['entry-title'].value,
             content: e.target['entry-text'].value,
-            monthid: ((new Date().getMonth()) + 1)
+            date: date,
+            monthid: ((new Date(date).getMonth()) + 1)
         };
+        console.log(newEntry)
         fetch(`${config.API_ENDPOINT}/entry`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
@@ -31,6 +37,12 @@ class AddEntry extends Component {
             this.context.addEntry(entry)
             this.props.history.push(`/entry/${entry.id}`)
         });
+    };
+
+    createDefaultDate() {
+        var date = new Date();
+        var min_date = date.toISOString().slice(0, 10)
+        return min_date
     };
 
     render() {
@@ -47,9 +59,13 @@ class AddEntry extends Component {
                             id="record-entry"
                         >
                             <ul className='input-list'>
+                                <li>
+                                    <label htmlFor='entry-date' className='date'>Date:</label>
+                                    <input type='date' id='entry-date' defaultValue={this.createDefaultDate()} required></input>
+                                </li>
                                 <li >
                                     <label htmlFor="entry-title" className='title'>Title:</label>
-                                    <input type="text" id="entry-title" defaultValue="new date" required />
+                                    <input type="text" id="entry-title" defaultValue="new entry" required />
                                 </li>
                                 <li >
                                     <label htmlFor="entry-text" className='entry'>Entry:</label>

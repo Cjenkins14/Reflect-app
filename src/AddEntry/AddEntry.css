@@ -6,13 +6,16 @@
 #entry-text {
     height: 200px;
 }
-#entry-text, #entry-title {
+#entry-text, #entry-title  {
     width: 40%
 }
 
 .entry {
     padding-right: 10px;
 }
+ .date {
+     padding-right: 16px;
+ }
 .title {
     padding-right: 19px;
 }
