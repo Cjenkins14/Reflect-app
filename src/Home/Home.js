@@ -63,15 +63,12 @@ class Home extends Component {
                     <MonthList />
                 </section >
 
-                <section>
-                    <ul className="entry-list">
-                        {(entries
-                            ? <EntryList id={id} />
-                            : <li>Please select</li>)}
-                    </ul>
+                <section className='flex-list'>
+                    <EntryList id={id} />
+
                 </section>
                 <Link to='/add'>
-                    <button class='entry-button'>New Entry</button>
+                    <button className='entry-button'>New Entry</button>
                 </Link>
             </div >
         );

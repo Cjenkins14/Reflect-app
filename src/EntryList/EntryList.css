@@ -3,8 +3,9 @@
 }
 
 .entry-button {
+  background-color: black;
+  color: white;
   height: 4em;
-  width: 6em;
   border-radius: 5px;
   border: none;
   margin: 10px;
@@ -12,4 +13,20 @@
 .entry-button:hover {
   background-color: gray;
   color: black;
+}
+
+@media screen and (min-width: 500px) { 
+  .entry-list {
+    padding: 10% 10%;
+    justify-content: space-between ;
+    list-style: none;
+    column-count: 2;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 900px) {
+    .entry-list{
+      columns: 3;
+    }
 }

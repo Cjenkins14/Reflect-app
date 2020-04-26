@@ -83,7 +83,7 @@ class EntryMain extends Component {
                         Entry:
                         <p>{entry.content}</p>
                     </section>
-                    <button onClick={this.handleDelete}>Delete</button>
+                    <button onClick={this.handleDelete} className='del-button'>Delete</button>
 
                 </main>
             </div>

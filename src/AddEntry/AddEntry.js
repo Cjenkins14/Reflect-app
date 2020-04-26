@@ -15,9 +15,6 @@ class AddEntry extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const date = e.target['entry-date'].value
-        console.log(date)
-        console.log(new Date(date))
-        console.log(new Date(date).getMonth() + 1)
         const newEntry = {
             title: e.target['entry-title'].value,
             content: e.target['entry-text'].value,

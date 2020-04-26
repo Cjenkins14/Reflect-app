@@ -37,7 +37,7 @@ class EntryList extends Component {
     renderEntries = () => {
         return (
             this.state.entries.map(entry => {
-                return <li className='entry-list' key={entry.id}>
+                return <li className='entry-item' key={entry.id}>
                     <Link to={`/entry/${entry.id}`}>
                         <button className='entry-button'>
                             {entry.title}
@@ -52,10 +52,14 @@ class EntryList extends Component {
         const entries = this.state.entries
 
         if (entries.length) {
-            return this.renderEntries()
+            return <ul className='entry-list'>{this.renderEntries()}</ul>
 
         } else {
-            return <li>No entries found</li>
+            return (
+                <div className='no-entry'>
+                    <p>No entries found</p>
+                </div>
+            )
         }
 
     };
