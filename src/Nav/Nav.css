@@ -1,6 +1,6 @@
 .topnav {
   overflow: hidden;
-  background-color: gray;
+  background-color: black;
 }
 
 .topnav a {
@@ -28,6 +28,7 @@
   cursor: pointer;
 }
 .hamburger-button {
+  font-size: 1.5em;
   height: 50px;
   width: 50px;
   border: none;

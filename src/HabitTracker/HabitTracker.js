@@ -83,13 +83,13 @@ class HabitTracker extends Component {
                 <div className='habit-tracker'>
                     <Nav history={this.props.history} />
                     <h1>Task Tracker</h1>
-                    <ul>
+                    <ul className='task-list'>
                         {habits.map(habit => {
                             return (
                                 <li className='habit-list' id='habit-id' newid={habit.id} key={habit.id} ref={this.myRef}>
                                     <input type='checkbox' id='habit-check' />
                                     <label htmlFor='habit-check' className='strike'>{habit.habit}</label>
-                                    <button onClick={this.handleDelete}>X</button>
+                                    <button onClick={this.handleDelete} className='task-delete'>&#10006;</button>
                                 </li>
                             )
                         })}
@@ -98,8 +98,8 @@ class HabitTracker extends Component {
 
                     <form ref={this.formRef} className='habit-entry' onSubmit={this.handleSubmit}>
                         <label htmlFor='new-habit'>Add a Task:</label> <br />
-                        <input type='text' id='new-habit' placeholder='New goals?' />
-                        <button>Add</button>
+                        <input type='text' id='new-habit' placeholder='New goals?' /> <br />
+                        <button className='add-button'>Add</button>
                     </form>
                 </div >
             )

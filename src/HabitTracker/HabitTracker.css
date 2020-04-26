@@ -4,8 +4,34 @@
 
 .habit-list {
     list-style: none;
+    padding: 2% 0%;
 }
 
 #habit-check:checked + .strike {
     text-decoration: line-through;
+}
+
+.habit-entry {
+    padding: 5% 5%;
+}
+
+.task-delete {
+    border: none;
+    background-color: white;
+    font-size: 1em;
+}
+
+.task-list {
+    font-size: 1.25em;
+}
+.add-button {
+  margin: 2% 2%;
+  height: 4em;
+  width: 6em;
+  border-radius: 5px;
+  border: none;
+}
+.add-button:hover {
+  background-color: gray;
+  color: black;
 }

@@ -70,8 +70,8 @@ class AddEntry extends Component {
                                 </li>
                             </ul>
 
-                            <button type="submit">Submit</button>
-                            <button type="reset">Reset</button>
+                            <button type="submit" className='submit-button'>Submit</button>
+                            <button type="reset" className='reset-button'>Reset</button>
                             {/* add habitlist as a daily reminder */}
                         </form>
                     </section>

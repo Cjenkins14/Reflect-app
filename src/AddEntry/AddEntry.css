@@ -5,6 +5,7 @@
 
 #entry-text {
     height: 200px;
+    resize: vertical;
 }
 #entry-text, #entry-title  {
     width: 40%
@@ -18,4 +19,16 @@
  }
 .title {
     padding-right: 19px;
+}
+
+.submit-button, .reset-button {
+  margin: 0% 2%;
+  height: 4em;
+  width: 6em;
+  border-radius: 5px;
+  border: none;
+}
+.submit-button:hover, .reset-button:hover {
+  background-color: gray;
+  color: black;
 }
