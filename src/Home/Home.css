@@ -5,6 +5,9 @@
 .entry-list {
     padding: 0;
 }
+.month-list {
+    padding: 6% 0%;
+}
 
 /* .flex-list { */
     /* display: flex; */

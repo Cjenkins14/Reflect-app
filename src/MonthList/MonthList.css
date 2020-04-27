@@ -4,6 +4,10 @@
   user-select: none;
   cursor: pointer;
   border: none;
+  color: white;
+}
+a {
+  color: white;
 }
 
 .menu-item-wrapper.active {
@@ -12,6 +16,13 @@
 }
  
 .scroll-menu-arrow {
+  background-color: black;
+  border-radius: 5px;
   padding: 20px;
   cursor: pointer;
+}
+
+.scroll-menu-arrow:hover {
+  background-color: white;
+  color: black;
 }

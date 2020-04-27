@@ -3,10 +3,11 @@
 }
 
 body {
+  background-color: #444444;
   font-family: "Open Sans",
   sans-serif; 
   font-size: 20px;
-  color: #444;
+  color: white;
   text-align: center;
   line-height: 1.5;
 }
@@ -38,12 +39,13 @@ nav {
 
 header {
   padding: 5% 0;
+  text-align: center;
 }
 
 section {
   min-height: 100px;
   padding: 6% 6%;
-  background-color: black;
+  background-color: #444;
 }
 
 /* section:nth-child(even) { */

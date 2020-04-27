@@ -59,17 +59,17 @@ class Home extends Component {
                 </header>
 
                 {/* fetch with month id when clicked */}
-                <section>
+                <section className='month-list'>
                     <MonthList />
                 </section >
 
                 <section className='flex-list'>
                     <EntryList id={id} />
 
+                    <Link to='/add'>
+                        <button className='entry-button'>New Entry</button>
+                    </Link>
                 </section>
-                <Link to='/add'>
-                    <button className='entry-button'>New Entry</button>
-                </Link>
             </div >
         );
     };
