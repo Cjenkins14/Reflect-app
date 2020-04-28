@@ -10,4 +10,4 @@ This project utitlizes HTML, CSS, Javascript, React, Node.js, PostgreSQL, and Ex
 
 ## Screenshots
 
-![main-image]https://user-images.githubusercontent.com/54726437/80525357-9d885c00-8980-11ea-9cdd-f206bf6612c2.png
+![main-image](https://user-images.githubusercontent.com/54726437/80525357-9d885c00-8980-11ea-9cdd-f206bf6612c2.png)
