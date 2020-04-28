@@ -11,3 +11,8 @@ This project utitlizes HTML, CSS, Javascript, React, Node.js, PostgreSQL, and Ex
 ## Screenshots
 
 ![main-image](https://user-images.githubusercontent.com/54726437/80525357-9d885c00-8980-11ea-9cdd-f206bf6612c2.png)
+### Entries page to view, and select an entry.
+![add-entry](https://user-images.githubusercontent.com/54726437/80525470-d0325480-8980-11ea-82de-1fd041909f12.png)
+### Add entry page to create new entries.
+![task-list](https://user-images.githubusercontent.com/54726437/80525532-ea6c3280-8980-11ea-8f31-f13cf72825e3.png)
+### Task Tracker page to create, delete and check off tasks.
