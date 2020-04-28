@@ -17,7 +17,7 @@
 
 @media screen and (min-width: 500px) { 
   .entry-list {
-    padding: 10% 10%;
+    padding: 0% 10%;
     justify-content: space-between ;
     list-style: none;
     column-count: 2;
