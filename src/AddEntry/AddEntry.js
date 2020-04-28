@@ -62,7 +62,7 @@ class AddEntry extends Component {
                                 </li>
                                 <li >
                                     <label htmlFor="entry-title" className='title'>Title:</label>
-                                    <input type="text" id="entry-title" defaultValue="new entry" required />
+                                    <input type="text" id="entry-title" required />
                                 </li>
                                 <li >
                                     <label htmlFor="entry-text" className='entry'>Entry:</label>

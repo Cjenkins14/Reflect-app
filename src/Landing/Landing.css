@@ -27,13 +27,15 @@ nav {
 }
 
 .demo-button {
+  background-color: black;
+  color: white;
   height: 4em;
   width: 6em;
   border-radius: 5px;
   border: none;
 }
 .demo-button:hover {
-  background-color: gray;
+  background-color: white;
   color: black;
 }
 
