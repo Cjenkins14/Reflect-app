@@ -22,12 +22,6 @@ class Home extends Component {
     };
     static contextType = ReflectContext;
 
-    // filterMonth = (entries, id) => {
-    // console.log(entries)
-    // let filteredEntries = entries.filter(entry => entry.monthid === Number(id))
-    // console.log(filteredEntries)
-    // return filteredEntries
-    // }
 
     componentDidMount() {
         const id = this.props.month.id

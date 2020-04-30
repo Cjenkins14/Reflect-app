@@ -21,7 +21,7 @@ class EntryMain extends Component {
     static contextType = ReflectContext;
 
 
-    // fetch entry byId
+
     componentDidMount() {
         let id = this.props.match.params.id
         fetch(`${config.API_ENDPOINT}/entry/${id}`)

@@ -16,7 +16,6 @@ class Nav extends Component {
 
     myFunction = () => {
         let x = this.myRef.current;
-        console.log(x)
         if (x.className === "topnav") {
             x.className += " responsive";
         } else {

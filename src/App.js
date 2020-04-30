@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 import { Route } from 'react-router';
 import Landing from './Landing/Landing';
 import Home from './Home/Home'
@@ -48,7 +47,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    console.log('app mount')
     fetch(`${config.API_ENDPOINT}/habits`)
       .then((habitRes) => {
         if (!habitRes.ok)
@@ -56,10 +54,9 @@ class App extends Component {
         return habitRes.json()
       })
       .then(habits => {
-        console.log(habits)
         this.setState({
           habits: habits
-        }, () => { console.log(this.state.habits) })
+        }, () => { console.log() })
       })
       .catch(error => {
         console.log(error)
@@ -84,6 +81,7 @@ class App extends Component {
         <div className="app">
           {this.state.months.map(month => {
             return <Route
+              key={month.id}
               exact path={`/${month.name}`}
               render={(routeProps) => <Home month={month} {...routeProps} />} />
           })}

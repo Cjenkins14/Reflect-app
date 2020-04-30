@@ -21,7 +21,6 @@ class AddEntry extends Component {
             date: date,
             monthid: ((new Date(date).getMonth()) + 1)
         };
-        console.log(newEntry)
         fetch(`${config.API_ENDPOINT}/entry`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },

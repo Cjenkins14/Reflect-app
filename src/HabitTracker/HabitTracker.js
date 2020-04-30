@@ -5,8 +5,7 @@ import Nav from '../Nav/Nav'
 import config from '../config'
 
 
-// render with check or X for completed boolean
-// add delete option in list
+
 
 class HabitTracker extends Component {
     constructor(props) {
@@ -50,7 +49,6 @@ class HabitTracker extends Component {
 
 
     handleDelete = e => {
-        console.log(e.target.parentElement.getAttribute('newid'))
         e.preventDefault();
         const habitId = e.target.parentElement.getAttribute('newid');
         fetch(`${config.API_ENDPOINT}/habits/${habitId}`, {
