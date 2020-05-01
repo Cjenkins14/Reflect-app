@@ -87,9 +87,11 @@ class HabitTracker extends Component {
                         <ul className='task-list'>
                             {habits.map(habit => {
                                 return (
-                                    <li className='habit-list' id='habit-id' newid={habit.id} key={habit.id} ref={this.myRef}>
-                                        <input type='checkbox' id='habit-check' />
-                                        <label htmlFor='habit-check' className='strike'>{habit.habit}</label>
+                                    <li className='habit-list' newId={habit.id}>
+                                        <label>
+                                            <input type="checkbox" />
+                                            <span>{habit.habit}</span>
+                                        </label>
                                         <button onClick={this.handleDelete} className='task-delete'>&#10006;</button>
                                     </li>
                                 )
@@ -98,7 +100,7 @@ class HabitTracker extends Component {
 
 
                         <form ref={this.formRef} className='habit-entry' onSubmit={this.handleSubmit}>
-                            <label htmlFor='new-habit'>Add a Task:</label> <br />
+                            <label className='add-task' htmlFor='new-habit'>Add a Task:</label> <br />
                             <input type='text' id='new-habit' placeholder='New goals?' /> <br />
                             <button className='add-button'>Add</button>
                         </form>
@@ -112,7 +114,7 @@ class HabitTracker extends Component {
                     <h1>Task Tracker</h1>
                     <p>No tasks to display</p>
                     <form className='habit-entry' onSubmit={this.handleSubmit}>
-                        <label htmlFor='new-habit'>Add a Task:</label> <br />
+                        <label className='add-task' htmlFor='new-habit'>Add a Task:</label> <br />
                         <input type='text' id='new-habit' placeholder='New goals?' />
                         <button>Add</button>
                     </form>

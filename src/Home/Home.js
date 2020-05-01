@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Home.css';
-import { Link } from 'react-router-dom';
 import MonthList from '../MonthList/MonthList'
 import EntryList from '../EntryList/EntryList'
 import ReflectContext from '../ReflectContext'
@@ -44,7 +43,6 @@ class Home extends Component {
 
     render() {
         const id = this.props.month.id;
-        const entries = this.state.entries;
         return (
             <div className='home-page' >
                 <Nav history={this.props.history} />
@@ -59,10 +57,6 @@ class Home extends Component {
 
                 <section className='flex-list'>
                     <EntryList id={id} />
-
-                    <Link to='/add'>
-                        <button className='entry-button'>New Entry</button>
-                    </Link>
                 </section>
             </div >
         );
