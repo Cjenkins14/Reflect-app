@@ -14,7 +14,7 @@ class EntryList extends Component {
         match: {
             params: {}
         }
-    }
+    };
 
     componentDidMount() {
         const id = this.props.id
@@ -31,8 +31,8 @@ class EntryList extends Component {
             })
             .catch(error => {
                 console.log(error)
-            })
-    }
+            });
+    };
 
     renderEntries = () => {
         return (
@@ -45,11 +45,11 @@ class EntryList extends Component {
                     </Link>
                 </li>
             })
-        )
-    }
+        );
+    };
 
     render() {
-        const entries = this.state.entries
+        const entries = this.state.entries;
 
         if (entries.length) {
             return <ul className='entry-list'>{this.renderEntries()}</ul>

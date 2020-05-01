@@ -7,7 +7,7 @@ class Nav extends Component {
     constructor(props) {
         super(props)
         this.myRef = React.createRef();
-    }
+    };
 
     goBack = () => {
         this.props.history.goBack()
@@ -21,7 +21,7 @@ class Nav extends Component {
         } else {
             x.className = "topnav";
         }
-    }
+    };
 
     render() {
         return (
@@ -37,6 +37,6 @@ class Nav extends Component {
             </div>
         )
     }
-}
+};
 
 export default Nav;

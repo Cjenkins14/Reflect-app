@@ -11,14 +11,15 @@ class HabitTracker extends Component {
     constructor(props) {
         super(props)
         this.myRef = React.createRef()
-
     };
+
     static defaultProps = {
         onDeleteHabit: () => { },
         history: {
             push: () => { }
         }
-    }
+    };
+
     static contextType = ReflectContext;
 
     handleSubmit = e => {
@@ -43,8 +44,8 @@ class HabitTracker extends Component {
                 console.error({
                     error
                 })
-            })
-    }
+            });
+    };
 
 
 
@@ -69,8 +70,8 @@ class HabitTracker extends Component {
                 console.error({
                     error
                 })
-            })
-    }
+            });
+    };
 
 
 
@@ -122,6 +123,6 @@ class HabitTracker extends Component {
             )
         }
     }
-}
+};
 
 export default HabitTracker;

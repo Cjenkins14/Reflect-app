@@ -37,8 +37,8 @@ class Home extends Component {
             })
             .catch(error => {
                 console.log(error)
-            })
-    }
+            });
+    };
 
 
     render() {

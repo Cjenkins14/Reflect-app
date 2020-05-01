@@ -37,8 +37,8 @@ class EntryMain extends Component {
             })
             .catch(error => {
                 console.log(error)
-            })
-    }
+            });
+    };
 
     handleDelete = e => {
         e.preventDefault();
@@ -62,9 +62,9 @@ class EntryMain extends Component {
             .catch(error => {
                 console.error({
                     error
-                })
-            })
-    }
+                });
+            });
+    };
 
 
     render() {
