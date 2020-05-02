@@ -102,7 +102,7 @@ class HabitTracker extends Component {
 
                         <form ref={this.formRef} className='habit-entry' onSubmit={this.handleSubmit}>
                             <label className='add-task' htmlFor='new-habit'>Add a Task:</label> <br />
-                            <input type='text' id='new-habit' placeholder='New goals?' /> <br />
+                            <input type='text' id='new-habit' placeholder='New goals?' required /> <br />
                             <button className='add-button'>Add</button>
                         </form>
                     </div>
@@ -116,8 +116,8 @@ class HabitTracker extends Component {
                     <p>No tasks to display</p>
                     <form className='habit-entry' onSubmit={this.handleSubmit}>
                         <label className='add-task' htmlFor='new-habit'>Add a Task:</label> <br />
-                        <input type='text' id='new-habit' placeholder='New goals?' />
-                        <button>Add</button>
+                        <input type='text' id='new-habit' placeholder='New goals?' required />
+                        <button className='new-add-button'>Add</button>
                     </form>
                 </div>
             )
